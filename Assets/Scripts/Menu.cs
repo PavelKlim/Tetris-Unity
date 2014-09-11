@@ -12,7 +12,7 @@ public class Menu : MonoBehaviour
 
 	void Start()
 	{
-		gl=GameObject.FindObjectOfType(typeof(CsGlobals)) as CsGlobals;
+		gl = GameObject.FindObjectOfType(typeof(CsGlobals)) as CsGlobals;
 	}
 
 
@@ -20,9 +20,9 @@ public class Menu : MonoBehaviour
 	{
 		GUI.skin = buttonGUISkin;
 
-		if(GUI.Button(new Rect(Screen.width-150, 10, 140, 60),buttonStartTexture))
+		if(GUI.Button(new Rect(Screen.width-150, 10, 140, 60), buttonStartTexture))
 		{
-			gl.isPlayingGame=true;
+			gl.isPlayingGame = true;
 		}
 		
 		if(GUI.Button(new Rect(Screen.width-150, 80, 140, 60), buttonResetTexture))

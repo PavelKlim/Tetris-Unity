@@ -14,7 +14,7 @@ public class CubeInfo : MonoBehaviour
 		string cubeNameColored = "CubeColored";
 		cube = this.gameObject;
 		cubeColoredPrefab=(GameObject)Resources.Load(cubeNameColored, typeof(GameObject));
-		cubeColored=(GameObject) Instantiate (cubeColoredPrefab,new Vector3(this.transform.position.x, this.transform.position.y,this.transform.position.z),Quaternion.identity);
+		cubeColored=(GameObject) Instantiate (cubeColoredPrefab, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
 		cubeColored.SetActive(false);
 		cubeColored.transform.parent = this.transform;
 	}

@@ -84,7 +84,7 @@ public class Figure //: MonoBehaviour
 		{
 			for (int y = 0; y < rotatedFigure.GetLength(0); y++)
 			{
-				rotatedFigure[y, x] = this.form[this.form.GetLength(0) - 1 - x, y];
+				rotatedFigure[y, x] = this.form[this.form.GetLength(0)-1-x, y];
 			}
 		}
 		figureTest.form = rotatedFigure;
@@ -120,7 +120,7 @@ public class Figure //: MonoBehaviour
 	
 	public bool isCollisionBottom(Model model)
 	{
-		if (!(this.position.Y + this.form.GetLength(0) <= model.cells.GetLength(0) - 1))
+		if (!(this.position.Y + this.form.GetLength(0) <= model.cells.GetLength(0)-1))
 			return true;
 		else
 			for (int y = this.form.GetLength(0) - 1; y >= 0; y--)
@@ -128,7 +128,7 @@ public class Figure //: MonoBehaviour
 			for (int x = 0; x < this.form.GetLength(1); x++)
 			{
 				if (this.position.Y >= 0)
-					if (this.form[y, x] && model.isFill(this.position.X + x, this.position.Y + y + 1))
+					if (this.form[y, x] && model.isFill(this.position.X + x, this.position.Y+y+1))
 						return true;
 			}
 		}

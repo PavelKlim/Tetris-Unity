@@ -9,7 +9,7 @@ public class Blow : MonoBehaviour {
 	void Start () 
 	{
 		effectGO = this.gameObject;
-		patricleSystemEffect = effectGO.GetComponent<ParticleSystem> ();
+		patricleSystemEffect = effectGO.GetComponent<ParticleSystem>();
 	}
 
 }

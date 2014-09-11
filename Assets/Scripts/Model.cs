@@ -66,7 +66,7 @@ public class Model //: MonoBehaviour
 						if ((g - 1) <= (this.cells.GetLength(0) - 1))
 						{
 							this.cells[g, h] = this.cells[g - 1, h];
-							cubesArray[g,h].cubeColored.renderer.material.color=cubesArray[g-1,h].cubeColored.renderer.material.color;
+							cubesArray[g, h].cubeColored.renderer.material.color = cubesArray[g-1, h].cubeColored.renderer.material.color;
 						}
 						else
 							this.cells[g, h] = false;
