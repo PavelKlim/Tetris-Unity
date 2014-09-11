@@ -75,7 +75,7 @@ public class FigureController : MonoBehaviour
 		if (gl.isPlayingGame)
 		{
 			Time.timeScale = 1;		
-			if(gl.menu)
+			if (gl.menu)
 			{
 				InvokeRepeating("moveDown", 0, timeMove);  //timer, that run function for figure falling
 				gl.menu = false;
@@ -92,7 +92,7 @@ public class FigureController : MonoBehaviour
 				if (gl.currentFigure.MoveRight(gl.model))
 					OnChanged();
 			}
-			if(Input.GetKeyDown(KeyCode.S))
+			if (Input.GetKeyDown(KeyCode.S))
 			{
 				if(timeMove == timeMoveMax)
 				{
@@ -109,7 +109,7 @@ public class FigureController : MonoBehaviour
 			}
 			else
 			{
-				if(Input.GetKeyDown (KeyCode.E))
+				if (Input.GetKeyDown (KeyCode.E))
 					if (gl.currentFigure.rotateRight(gl.model))
 						OnChanged();
 			}
