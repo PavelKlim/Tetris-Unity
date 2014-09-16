@@ -24,7 +24,7 @@ public class effectClearLineSpawner : MonoBehaviour {
 		float y = (model.cells.GetLength(0)-1-_y)*3 + 1.5f;
 		if (model != null)
 		{
-			for (int i=0; i<model.cells.GetLength(0); i++)
+			for (int i=0; i<model.cells.GetLength(1); i++)
 			{
 				effectGO =(GameObject) Instantiate(effectPSPrefab,new Vector3(_x, y, -_z), Quaternion.identity);
 				effectBlow[i]=effectGO.GetComponent<Blow>();

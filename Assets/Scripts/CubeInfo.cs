@@ -3,13 +3,13 @@ using System.Collections;
 
 public class CubeInfo : MonoBehaviour 
 {
-	public float cubeSize=3;
+	public float cubeSize = 0;
 	public Color cubeColor=Color.white;
 	public GameObject cube;
 	public GameObject cubeColoredPrefab;
 	public GameObject cubeColored;
 
-	void Awake()
+	void Start()
 	{
 		string cubeNameColored = "CubeColored";
 		cube = this.gameObject;
@@ -17,5 +17,6 @@ public class CubeInfo : MonoBehaviour
 		cubeColored=(GameObject) Instantiate (cubeColoredPrefab, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
 		cubeColored.SetActive(false);
 		cubeColored.transform.parent = this.transform;
-	}
+
+	}	
 }

@@ -40,7 +40,7 @@ public class Figure //: MonoBehaviour
 			this.nameFigure = Figures.Stick;
 			break;
 		}
-		this.position = new Point((int)(model.cells.GetLength(1) / 2) - (this.form.GetLength(1) / 2), -2*(this.form.GetLength(0)));
+		if (model != null) this.position = new Point((int)(model.cells.GetLength(1) / 2) - (this.form.GetLength(1) / 2), -2*(this.form.GetLength(0)));
 		
 	}
 

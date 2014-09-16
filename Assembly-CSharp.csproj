@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\Model.cs" />
      <Compile Include="Assets\Scripts\NextFigurePreview.cs" />
+     <Compile Include="Assets\Scripts\PlayingFieldGenerator.cs" />
      <Compile Include="Assets\Scripts\Point.cs" />
      <Compile Include="Assets\Scripts\View.cs" />
      <Compile Include="Assets\Scripts\effectClearLineSpawner.cs" />
