@@ -120,15 +120,15 @@ public class Figure //: MonoBehaviour
 	
 	public bool isCollisionBottom(Model model)
 	{
-		if (!(this.position.Y + this.form.GetLength(0) <= model.cells.GetLength(0)-1))
+		if (!(this.position.Y+this.form.GetLength(0) <= model.cells.GetLength(0)-1))
 			return true;
 		else
-			for (int y = this.form.GetLength(0) - 1; y >= 0; y--)
+			for (int y = this.form.GetLength(0)-1; y >= 0; y--)
 		{
 			for (int x = 0; x < this.form.GetLength(1); x++)
 			{
-				if (this.position.Y >= 0)
-					if (this.form[y, x] && model.isFill(this.position.X + x, this.position.Y+y+1))
+				if (this.position.Y >= -1)
+					if (this.form[y, x] && model.isFill(this.position.X+x, this.position.Y+y+1))
 						return true;
 			}
 		}
@@ -138,14 +138,14 @@ public class Figure //: MonoBehaviour
 	
 	public bool isCollisionLeft(Model model)
 	{
-		if (!(this.position.X - 1 >= 0))
+		if (!(this.position.X-1 >= 0))
 			return true;
 		else
 			for (int x = 0; x < this.form.GetLength(1); x++)
 		{
 			for (int y = 0; y < this.form.GetLength(0); y++)
 			{
-				if (this.form[y, x] && model.isFill(this.position.X + x - 1, this.position.Y + y))
+				if (this.form[y, x] && model.isFill(this.position.X+x-1, this.position.Y+y))
 					return true;
 			}
 		}

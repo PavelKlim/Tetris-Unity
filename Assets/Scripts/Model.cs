@@ -37,7 +37,7 @@ public class Model //: MonoBehaviour
 	{
 		for (int y = 0; y < figure.form.GetLength(0); y++)
 			for (int x = 0; x < figure.form.GetLength(1); x++)
-				if (figure.form[y, x])
+				if (figure.form[y, x] && y+figure.position.Y>=0)
 					this.cells[y + figure.position.Y, x + figure.position.X] = true;
 	}
 	//-----------------------------------------------------------------------------------------------

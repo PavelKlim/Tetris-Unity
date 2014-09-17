@@ -62,6 +62,7 @@ public class PlayingFieldGenerator : MonoBehaviour
 				}
 			playingField.transform.localScale = Vector3.Scale (playingField.transform.localScale, newSize);
 			placingCubes(gl.model, gl.cubeInfo.cubeSize);
+			done = true;
 		}
 	}
 
@@ -74,14 +75,19 @@ public class PlayingFieldGenerator : MonoBehaviour
 			float z_ = -cubeSize/2;
 			GameObject cubeGO;
 			gl.cubeInfo = cubePrefab.gameObject.GetComponent<CubeInfo>();  //getting info about cube (color, size...)
-			cubePrefab.transform.localScale = Vector3.Scale (cubePrefab.transform.localScale, new Vector3());
+			float temp = cubePrefab.renderer.bounds.size.x;
+			//cubePrefab.transform.localScale = Vector3.Scale (cubePrefab.transform.localScale, new Vector3(3/cubePrefab.renderer.bounds.size.x, 3/cubePrefab.renderer.bounds.size.y, 3/cubePrefab.renderer.bounds.size.z));
+			//cubePrefab.transform.localScale = Vector3.Scale (cubePrefab.transform.localScale, new Vector3(cubePrefab.renderer.bounds.size.x));
 			for(int y=0; y < model.cells.GetLength(0); y++)
 			{
 				for(int x=0; x < model.cells.GetLength (1); x++)
 				{
 					cubeGO =(GameObject) Instantiate (cubePrefab, new Vector3(this.transform.position.x + x_, this.transform.position.y + y_, this.transform.position.z + z_), Quaternion.identity);
-					cubeGO.SetActive(false);
+					//cubeGO.SetActive(false);
 					gl.cubesArray[y,x]=cubeGO.GetComponent<CubeInfo>();
+					gl.cubesArray[y,x].gameObject.SetActive(false);
+					gl.cubesArray[y,x].cubeColored.transform.localScale = Vector3.Scale (gl.cubesArray[y,x].cubeColored.transform.localScale, new Vector3(gl.cubeInfo.cubeSize/gl.cubesArray[y,x].cubeColored.renderer.bounds.size.x * 0.9f, gl.cubeInfo.cubeSize/gl.cubesArray[y,x].cubeColored.renderer.bounds.size.y * 0.9f, gl.cubeInfo.cubeSize/gl.cubesArray[y,x].cubeColored.renderer.bounds.size.z * 0.9f));
+					gl.cubesArray[y,x].cube.transform.localScale = Vector3.Scale (gl.cubesArray[y,x].cube.transform.localScale, new Vector3(gl.cubeInfo.cubeSize/gl.cubesArray[y,x].cube.renderer.bounds.size.x, gl.cubeInfo.cubeSize/gl.cubesArray[y,x].cube.renderer.bounds.size.y, gl.cubeInfo.cubeSize/gl.cubesArray[y,x].cube.renderer.bounds.size.z));
 					x_ += cubeSize;
 				}
 				x_ = cubeSize/2;

@@ -8,8 +8,8 @@ public class Menu : MonoBehaviour
 	public Texture buttonResetTexture;
 	public GUISkin buttonGUISkin;
 	CsGlobals gl;
-	int width = 4;
-	int height = 4;
+	int width = 6;
+	int height = 6;
 	// Use this for initialization
 
 	void Start()
@@ -36,7 +36,7 @@ public class Menu : MonoBehaviour
 		GUI.Label (new Rect (22, 40, 100, 20), "Width");
 		GUI.Label (new Rect (35, 60, 100, 20), width.ToString());
 
-		if (GUI.Button (new Rect(10,60,20,20), "-") && width >= 5)
+		if (GUI.Button (new Rect(10,60,20,20), "-") && width >= 7)
 		{
 			width--;
 		}
@@ -50,7 +50,7 @@ public class Menu : MonoBehaviour
 		GUI.Label (new Rect (22, 80, 100, 20), "Height");
 		GUI.Label (new Rect (35, 100, 100, 20), height.ToString());
 		
-		if (GUI.Button (new Rect(10, 100, 20, 20), "-") && height >= 5)
+		if (GUI.Button (new Rect(10, 100, 20, 20), "-") && height >= 7)
 		{
 			height--;
 		}

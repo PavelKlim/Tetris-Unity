@@ -15,7 +15,10 @@ public class CsGlobals : MonoBehaviour
 	public Color figureColor;
 	public CubeInfo cubeInfo;
 	public CubeInfo [,]cubesArray;
-		
+
+	public float timeMoveMax;
+	public float timeMoveMin;
+
 	void Start()
 	{
 

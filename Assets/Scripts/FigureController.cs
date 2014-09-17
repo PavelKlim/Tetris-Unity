@@ -124,7 +124,7 @@ public class FigureController : MonoBehaviour
 				timeMove=timeMoveMax;
 				InvokeRepeating("moveDown", 0, timeMove);  //restore the default timer
 				gl.model.Add(gl.currentFigure);
-				if (gl.model.fullLinesClear (gl.cubesArray, ref decreasedLines))
+				if (gl.model.fullLinesClear (gl.cubesArray, ref decreasedLines) && gl.isPlayingGame)
 				{
 					gl.Score += 200;
 					foreach (int line in decreasedLines)
@@ -133,11 +133,14 @@ public class FigureController : MonoBehaviour
 					}
 					decreasedLines = new ArrayList();
 				}
-				gl.currentFigure = gl.nextFigure;
-				gl.nextFigure = new Figure (gl.model);
-				gl.figureColor =new Color (Random.Range(0.35f, 0.7f), Random.Range(0.35f, 0.7f), Random.Range(0.35f, 0.7f));
-				model = gl.model;
-				gl.Score += 50;
+				if (!isGameOver(gl.model) && !gl.nextFigure.isOverlaying(gl.model))
+				{
+					gl.currentFigure = gl.nextFigure;
+					gl.nextFigure = new Figure (gl.model);
+					gl.figureColor =new Color (Random.Range(0.35f, 0.7f), Random.Range(0.35f, 0.7f), Random.Range(0.35f, 0.7f));
+					model = gl.model;
+					gl.Score += 50;
+				}
 				collisionCounter = 0;
 			} 
 
@@ -151,23 +154,22 @@ public class FigureController : MonoBehaviour
 
 	public void cubesVisibility()
 	{
-		for (int  x=0; x < gl.model.cells.GetLength (1); x++)
+		for (int  y=0; y < gl.model.cells.GetLength (0); y++)
 		{
-			for (int y=0; y < gl.model.cells.GetLength(0); y++)
+			for (int x=0; x < gl.model.cells.GetLength(1); x++)
 			{
 				if (gl.cubesArray[y,x]!=null)
 				{
-					if((gl.model.cells[y,x] || gl.currentFigure.isFill(x,y)))
+					if(gl.model.cells[y,x] || gl.currentFigure.isFill(x,y))
 					{
-
-						gl.cubesArray[y,x].cube.SetActive(true);	
-						gl.cubesArray[y,x].cubeColored.SetActive(true);
+						gl.cubesArray[y,x].gameObject.SetActive(true);
+						//gl.cubesArray[y,x].cube.SetActive(true);	
+						//gl.cubesArray[y,x].cubeColored.SetActive(true);
 						if(gl.currentFigure.isFill(x,y))
 						{
 							gl.cubesArray[y,x].cube.renderer.material = illuminContourMaterial;
 							gl.cubesArray[y,x].cubeColored.renderer.material = defaultColoredMaterial;
 							gl.cubesArray[y,x].cubeColored.renderer.material.color = gl.figureColor;
-							gl.cubesArray[y,x].cubeColored.SetActive(true);
 							//cubesArray[y,x].cubeColored.renderer.material=defaultMaterial;
 							/*
 							cubesArray[y,x].cube.renderer.material.shader=illuminShader;
@@ -189,8 +191,9 @@ public class FigureController : MonoBehaviour
 					}
 					else
 					{
-						gl.cubesArray[y,x].cube.SetActive(false);
-						gl.cubesArray[y,x].cubeColored.gameObject.SetActive(false);
+						gl.cubesArray[y,x].gameObject.SetActive(false);
+						//gl.cubesArray[y,x].cube.SetActive(false);
+						//gl.cubesArray[y,x].cubeColored.SetActive(false);
 						//cubesArray[y,x].cubeColored.renderer.material.color=Color.white;
 						//cubesArray[y,x].cubeColored.renderer.material=defaultMaterial;
 						//cubesArray[y,x].cubeColored.renderer.material.shader=defaultShader;
@@ -205,7 +208,10 @@ public class FigureController : MonoBehaviour
 	{
 		for (int x=0; x < model.cells.GetLength (1); x++)
 			if (model.cells[0, x])
+			{
+				gl.isPlayingGame=false;
 				return true;
+			}
 
 		return false;
 	}
