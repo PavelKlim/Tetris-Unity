@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Menu : MonoBehaviour 
 {
-
+	public PlayingFieldGenerator playFG;
 	public Texture buttonStartTexture;
 	public Texture buttonResetTexture;
 	public GUISkin buttonGUISkin;
@@ -68,6 +68,7 @@ public class Menu : MonoBehaviour
 			gl.currentFigure = new Figure (gl.model);
 			gl.nextFigure = new Figure (gl.model);	
 			gl.isSizeSet=true;
+			playFG.playingFieldGenerate();
 		}
 
 	}

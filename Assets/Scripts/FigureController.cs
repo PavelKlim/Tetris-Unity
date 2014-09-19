@@ -129,7 +129,7 @@ public class FigureController : MonoBehaviour
 					gl.Score += 200;
 					foreach (int line in decreasedLines)
 					{
-						effectBlow.showEffect(gl.model, line);
+						effectBlow.showEffect(gl.model, line, gl.cubeInfo);
 					}
 					decreasedLines = new ArrayList();
 				}
