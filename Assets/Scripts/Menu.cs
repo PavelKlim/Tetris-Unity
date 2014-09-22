@@ -24,9 +24,16 @@ public class Menu : MonoBehaviour
 
 		GUI.Label (new Rect (15, 10, 100, 20), "Score " + gl.Score);
 
-		if(GUI.Button(new Rect(Screen.width-150, 10, 140, 60), buttonStartTexture) && gl.isSizeSet)
+		if(GUI.Button(new Rect(Screen.width-150, 10, 140, 60), buttonStartTexture))
 		{
 			gl.isPlayingGame = true;
+			
+			gl.model = new Model(width, height);
+			gl.cubesArray = new CubeInfo[gl.model.cells.GetLength(0), gl.model.cells.GetLength(1)]; //array of cubes, that changes by cubesVisibility function
+			gl.currentFigure = new Figure (gl.model);
+			gl.nextFigure = new Figure (gl.model);	
+			gl.isSizeSet=true;
+			playFG.playingFieldGenerate();
 		}
 		
 		if(GUI.Button(new Rect(Screen.width-150, 80, 140, 60), buttonResetTexture))
@@ -61,7 +68,7 @@ public class Menu : MonoBehaviour
 		}
 
 		//Set button
-		if (GUI.Button (new Rect(10, 120, 60, 40), "Set"))
+		/*if (GUI.Button (new Rect(10, 120, 60, 40), "Set"))
 		{
 			gl.model = new Model(width, height);
 			gl.cubesArray = new CubeInfo[gl.model.cells.GetLength(0), gl.model.cells.GetLength(1)]; //array of cubes, that changes by cubesVisibility function
@@ -69,7 +76,7 @@ public class Menu : MonoBehaviour
 			gl.nextFigure = new Figure (gl.model);	
 			gl.isSizeSet=true;
 			playFG.playingFieldGenerate();
-		}
+		}*/
 
 	}
 

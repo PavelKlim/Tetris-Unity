@@ -62,7 +62,7 @@ public class PlayingFieldGenerator : MonoBehaviour
 				}
 				else
 				{
-
+					newPosition = new Vector3(figureSpawner.transform.position.x, figureSpawner.transform.position.y-widthPF/2+heightPF/2, figureSpawner.transform.position.z);
 					gl.cubeInfo.cubeSize=widthPF/gl.model.cells.GetLength (1);
 				}
 			playingField.transform.localScale = Vector3.Scale (playingField.transform.localScale, newSize);

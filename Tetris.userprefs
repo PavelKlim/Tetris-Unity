@@ -1,0 +1,29 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayingFieldGenerator.cs">
+    <Files>
+      <File FileName="Assets\Scripts\NextFigurePreview.cs" Line="18" Column="36" />
+      <File FileName="Assets\Scripts\CubeInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Model.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\effectClearLineSpawner.cs" Line="17" Column="2" />
+      <File FileName="Assets\Scripts\Blow.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CsGlobals.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Figure.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\View.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Menu.cs" Line="70" Column="1" />
+      <File FileName="Assets\Scripts\PlayingFieldGenerator.cs" Line="64" Column="6" />
+      <File FileName="Assets\Scripts\FigureController.cs" Line="132" Column="58" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="G:\Menu.cs" line="70" />
+      <Breakpoint file="G:\PlayingFieldGenerator.cs" line="72" />
+      <Breakpoint file="G:\Unity\Tetris\Assets\Scripts\effectClearLineSpawner.cs" line="57" />
+      <Breakpoint file="G:\Unity\Tetris\Assets\Scripts\effectClearLineSpawner.cs" line="58" />
+      <Breakpoint file="G:\Unity\Tetris\Assets\Scripts\effectClearLineSpawner.cs" line="59" />
+      <Breakpoint file="G:\Unity\Tetris\Assets\Scripts\PlayingFieldGenerator.cs" line="73" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
